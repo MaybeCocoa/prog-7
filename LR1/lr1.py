@@ -1,24 +1,13 @@
-# void lev() {
-#     float h, s, x, res;
-#     h = (b - a) / n;
-#     s = 0;
-#     x = a;
-#     while (x <= (b - h))
-#     {
-#       s += fun(x);
-#       x += h;
-#     }
-#     res = h * s;
-#     printf("\n > Результат методом левых частей:  %.4f\n", res);
-#      float r = 0, m = 0;
-#  if (pro(a) > pro(b)) {
-#    m = fabs(pro(a));
-#  }
-#  else{
-#    m = fabs(pro(b));
-#  }
-#  r = (pow(b - a, 2)/(2*n))*m;
-#  printf(" > Остаточный член равен: %f\n", r);
-#    secondMenu();
-# }
+import math
 
+
+def f(x):
+    return math.sin(x) 
+
+def integrate(a, b, n_iter=10**6):
+    result = 0
+    h = 1 / n_iter
+    while a <= b - h:
+        result += (f(a) + f(a + h)) / 2 * h
+        a += h
+    return result
